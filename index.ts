@@ -41,7 +41,7 @@ router.post("/dub-payment", async (req: Request) => {
 });
 
 router.post("/dub-subscribe", async (req: Request) => {
-  setVolume(100);
+  setVolume(90);
   playSound(`./subscribed.wav`);
   return new Response("Hello, Bun!", { status: 200 });
 });
