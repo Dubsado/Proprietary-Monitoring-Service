@@ -1,7 +1,9 @@
 # Proprietary-Monitoring-Service?
 
-To run in the background `pm2 start --interpreter ~/.bun/bin/bun index.ts`
+To run in PM2 `pm2 start --interpreter ~/.bun/bin/bun index.ts`
 
-To run ngrok in the background: `ngrok http --domain=curiously-bold-malamute.ngrok-free.app 8000 > /dev/null &`
+To keep in the background: `https://pm2.keymetrics.io/docs/usage/startup/`
+
+To run ngrok in the background: `ngrok service install -c ./ngrok.yml`
 
 Depends on this webhook: https://dashboard.stripe.com/webhooks/we_1PgvRjGLbbkCLN1Q1tSinVTv
