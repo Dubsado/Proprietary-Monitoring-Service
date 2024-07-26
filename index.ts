@@ -40,6 +40,12 @@ router.post("/dub-payment", async (req: Request) => {
   return new Response("Hello, Bun!", { status: 200 });
 });
 
+router.post("/dub-subscribe", async (req: Request) => {
+  setVolume(100);
+  playSound(`./subscribed.wav`);
+  return new Response("Hello, Bun!", { status: 200 });
+});
+
 //http://dubsado-alert-pi.local:8000/
 const server = Bun.serve({
   port: 8000,
