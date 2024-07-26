@@ -1,3 +1,5 @@
+authtoken: tokengoesherepleasereplaceme
+
 tunnels:
   monitor:
     addr: 8000
