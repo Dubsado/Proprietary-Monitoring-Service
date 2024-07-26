@@ -1,8 +1,41 @@
 import { spawn } from "bun";
 import { handler, router } from "igloo-router";
 
-router.post("/", (req: Request) => {
-  setVolume(90);
+/**
+ * Maps a value from one range to another.
+ *
+ * @param {number} originalValue - The value to map from the original range.
+ * @returns {number} - The value mapped to the new range.
+ */
+function mapValueToRange(originalValue: number) {
+  if (!originalValue) {
+    return 0;
+  }
+
+  // Define the original range
+  const originalMin = 0;
+  const originalMax = 50000;
+
+  // Define the new range
+  const newMin = 0;
+  const newMax = 100;
+
+  // Calculate the scaling factor for the conversion
+  const scale = (newMax - newMin) / (originalMax - originalMin);
+
+  // Apply the linear mapping formula
+  const mappedValue =
+    newMin + (Math.min(originalValue, originalMax) - originalMin) * scale;
+
+  return mappedValue;
+}
+
+router.post("/", async (req: Request) => {
+  const json = await req.json();
+
+  const volume = mapValueToRange(json?.data?.object?.amount);
+
+  setVolume(volume);
   playSound(`./alert.wav`);
   return new Response("Hello, Bun!", { status: 200 });
 });
