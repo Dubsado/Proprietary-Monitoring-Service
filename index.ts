@@ -17,7 +17,7 @@ function mapValueToRange(originalValue: number) {
   const originalMax = 50000;
 
   // Define the new range
-  const newMin = 0;
+  const newMin = 30;
   const newMax = 100;
 
   // Calculate the scaling factor for the conversion
