@@ -1,8 +1,6 @@
-web_addr: localhost:4040
 tunnels:
-  website:
+  monitor:
     addr: 8000
-    schemes:
-      - http
     proto: http
     domain: curiously-bold-malamute.ngrok-free.app
+version: 2
