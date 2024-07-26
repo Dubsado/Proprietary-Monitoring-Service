@@ -1,13 +1,16 @@
 import { spawn } from "bun";
+import { handler, router } from "igloo-router";
+
+router.post("/", (req: Request) => {
+  setVolume(90);
+  playSound(`./alert.wav`);
+  return new Response("Hello, Bun!", { status: 200 });
+});
 
 //http://dubsado-alert-pi.local:8000/
 const server = Bun.serve({
   port: 8000,
-  fetch(req) {
-    setVolume(90);
-    playSound(`./alert.wav`);
-    return new Response("Hello, Bun!", { status: 200 });
-  },
+  fetch: handler,
 });
 
 async function playSound(filePath: string) {
