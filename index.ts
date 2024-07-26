@@ -14,7 +14,7 @@ function mapValueToRange(originalValue: number) {
 
   // Define the original range
   const originalMin = 0;
-  const originalMax = 50000;
+  const originalMax = 100000; // $1000 max
 
   // Define the new range
   const newMin = 30;
@@ -30,7 +30,7 @@ function mapValueToRange(originalValue: number) {
   return mappedValue;
 }
 
-router.post("/", async (req: Request) => {
+router.post("/dub-payment", async (req: Request) => {
   const json = await req.json();
 
   const volume = mapValueToRange(json?.data?.object?.amount);
