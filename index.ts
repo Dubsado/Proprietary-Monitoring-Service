@@ -12,22 +12,12 @@ function mapValueToRange(originalValue: number) {
     return 0;
   }
 
-  // Define the original range
-  const originalMin = 0;
-  const originalMax = 100000; // $1000 max
+  // do not play sound if less than $5k is transacted
+  if (originalValue < 500000) {
+    return 0;
+  }
 
-  // Define the new range
-  const newMin = 30;
-  const newMax = 75;
-
-  // Calculate the scaling factor for the conversion
-  const scale = (newMax - newMin) / (originalMax - originalMin);
-
-  // Apply the linear mapping formula
-  const mappedValue =
-    newMin + (Math.min(originalValue, originalMax) - originalMin) * scale;
-
-  return mappedValue;
+  return 75;
 }
 
 router.post("/dub-payment", async (req: Request) => {
