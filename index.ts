@@ -26,13 +26,13 @@ router.post("/dub-payment", async (req: Request) => {
   const volume = mapValueToRange(json?.data?.object?.amount);
 
   setVolume(volume);
-  playSound(`./alert.wav`);
+  playSound(`./subscribed.wav`);
   return new Response("Hello, Bun!", { status: 200 });
 });
 
 router.post("/dub-subscribe", async (req: Request) => {
   setVolume(90);
-  playSound(`./subscribed.wav`);
+  playSound(`./alert.wav`);
   return new Response("Hello, Bun!", { status: 200 });
 });
 
